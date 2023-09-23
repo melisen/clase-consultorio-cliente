@@ -1,8 +1,8 @@
 
 
-//* PEDIR DATOS A UNA API:
-
+//* PEDIR DATOS A UNA API u obtenerlos de forma local leyendo un archivo .json (la ruta del archivo debe estar escrita a partir de la raíz de la estructura de carpetas del proyecto):
 let relativePath = "./medicos.json"
+let urlServidorLocalMedicos = "http://localhost:8080/api/medicos"
 let arrMedicos = [];
 
 function buscarMedicos(url){
@@ -16,6 +16,7 @@ function buscarMedicos(url){
             });                        
 }
 buscarMedicos(relativePath)
+//buscarMedicos(urlServidorLocalMedicos)
 
 
 
