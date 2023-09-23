@@ -1,0 +1,35 @@
+[
+    {
+        "nombre": "Jimena",
+        "apellido": "Gutiérrez",
+        "especialidad":"Ginecología",
+        "consultorio": 3,
+        "agenda": [
+            {
+                "mes": "septiembre",
+                "fecha": 25,  
+                "dia": "lunes",
+                "turnos":[
+                    {
+                        "horario": 12,
+                        "paciente": "disponible"
+                    },
+                    {
+                        "horario": 13,
+                "paciente": "disponible"
+                    },
+                    {
+                        "horario": 14,
+                        "paciente": "disponible"
+                    },
+                    {
+                        "horario": 15,
+                        "paciente": "disponible"    
+                    }                   
+                ]
+                
+            }
+            
+        ]
+    }
+]

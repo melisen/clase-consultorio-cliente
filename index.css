@@ -1,0 +1,26 @@
+.card-turno{
+  width:14rem;
+  border: 0.1rem solid rgb(103, 218, 218);
+  border-radius: 5px;
+  display: inline-block;
+  box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0.5rem; 
+}
+.divturnos{
+    display:flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.lista{
+  text-align:center;
+  list-style-type: none;
+  text-decoration: none;
+  line-height:1.5rem;
+  font-weight:bold;
+}
+.paciente{
+  font-style:italic;
+  font-weight: normal;
+}
