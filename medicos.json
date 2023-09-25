@@ -3,20 +3,19 @@
         "nombre": "Jimena",
         "apellido": "Gutiérrez",
         "especialidad":"Ginecología",
-        "consultorio": 3,
+        "consultorio":  3,
         "agenda": [
             {
-                "mes": "septiembre",
                 "fecha": 25,  
                 "dia": "lunes",
                 "turnos":[
                     {
                         "horario": 12,
-                        "paciente": "disponible"
+                        "paciente": "María"
                     },
                     {
                         "horario": 13,
-                "paciente": "disponible"
+                        "paciente": "disponible"
                     },
                     {
                         "horario": 14,
@@ -31,5 +30,10 @@
             }
             
         ]
+    },
+    {
+        "nombre": "Marcela",
+        "apellido": "Flores",
+        "especialidad":"Odontología"
     }
 ]

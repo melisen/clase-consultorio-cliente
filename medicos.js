@@ -1,7 +1,7 @@
 
 
 //* PEDIR DATOS A UNA API u obtenerlos de forma local leyendo un archivo .json (la ruta del archivo debe estar escrita a partir de la raíz de la estructura de carpetas del proyecto):
-let relativePath = "./medicos.json"
+let relativePath = "./medicos.json"  //
 let urlServidorLocalMedicos = "http://localhost:8080/api/medicos"
 let arrMedicos = [];
 
@@ -19,51 +19,14 @@ buscarMedicos(relativePath)
 //buscarMedicos(urlServidorLocalMedicos)
 
 
-
-//*DATOS HARCODE:
-/*
-const arrMedicos = [
-    {
-    id:1,
-    nombre: "Jimena",
-    apellido: "Gutiérrez",
-    especialidad:"Ginecología",
-    consultorio: 3,
-    agenda: [
-        {
-            mes: "septiembre",
-            fecha: 25,  
-            dia: "lunes",
-            turnos:[
-                {
-                    horario: 12,
-                    paciente: "disponible"
-                },
-                {
-                    horario: 13,
-                    paciente: "disponible"
-                },
-                {
-                    horario: 14,
-                    paciente: "disponible"
-                },
-                {
-                    horario: 15,
-                    paciente: "disponible"    
-                }                   
-            ]
-            
-        }
-        
-    ]
-}
-]*/
-
 //* DOM:
-const divturnos = document.getElementById("divturnos");
-const divMedicos = document.getElementById("divmedicos")
+
+const divMedicos = document.getElementById("divmedicos");
 const verMedicosBtn = document.getElementById("vermedicos");
+const divturnos = document.getElementById("divturnos");
 const verTurnosBtn = document.getElementById("verturnos")
+
+
 
 //*funciones:
 const mostrarMedicos = (arr) =>{
@@ -72,12 +35,15 @@ const mostrarMedicos = (arr) =>{
         divMedicos.appendChild(cardMedico)
         cardMedico.innerHTML =    
         `<div class="card-turno ">
-            <label  for="${element.nombre}">${element.nombre}</label>
-            <label  for="${element.apellido}">${element.apellido}</label>
-            <label  for="${element.especialidad}">${element.especialidad}</label>
-            <input type="checkbox" class="checkboxCuadrado"  id="checkbox${element.id}" value="${element.id}">      
-            <button id="verturnos${element.id}">Ver Turnos</button>
-            </div>`        
+            <div class="nombre-apellido">
+                <label  for="${element.nombre}">${element.nombre}</label>
+                <label  for="${element.apellido}">${element.apellido}</label>
+            </div>            
+            <div class="nombre-apellido">
+                 <label  for="${element.especialidad}">${element.especialidad}</label>
+            </div>     
+            <button id="verturnos${element.id}" class="btn">Ver Turnos</button>
+        </div>`        
 
     })
 }
@@ -117,16 +83,25 @@ const mostrarAgendaMedico = (arr, id) =>{
         
         const arrTurnos = element.turnos;
         const listaHorarios = arrTurnos.map((item) =>
-          `<li> ${item.horario} hs  <label  for="${item.paciente}" class="paciente">${item.paciente}</label> </li>`
+          `<li> ${item.horario} hs  <label  for="${item.paciente}" class="paciente">${item.paciente}</label>
+          
+            <input name="pacienteanotado" id="${item.horario}" type="text">
+            <button type="submit" id="" style="color:white; background-color:rgb(92, 200, 92); margin:20px; border-radius:3px; border-width:0px; padding:8px;">
+               Modificar
+            </button>
+           </li>`
       ).join(" ");      
         cardTurno.innerHTML =    
         `<div class="card-turno ">
             <label  for="${element.dia}">${element.dia}</label>
             <label  for="${element.fecha}">${element.fecha}</label>
-            <label  for="${element.mes}">${element.mes}</label>
+            
+
+            <form method="post" action="/api/medicos/jimena/modificar">
             <ul class="lista">
            ${listaHorarios}
         </ul>        
+        </form>
         </div>`        
     })
 }

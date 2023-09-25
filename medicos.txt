@@ -1,0 +1,14 @@
+array de médicos
+cada médico es un objeto
+propiedades de un médico son:
+nombre, apellido, especialidad, consultorio, agenda
+string,  string,    string,      number       array
+
+agenda está compuesto por un conjunto de fechas
+propiedades del objeto de fecha:
+fecha, dia, turno
+
+turnos es un array
+objeto está compuesto por:
+horario y paciente
+number    string
