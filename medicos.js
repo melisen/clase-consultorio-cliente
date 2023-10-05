@@ -35,8 +35,6 @@ const verTurnosFx = (id)=>{
 }
 
 const mostrarMedicos = (arr) =>{
-
-    
     arr.forEach((element)=>{
         let cardMedico = document.createElement("div");
         divMedicos.appendChild(cardMedico)
@@ -48,55 +46,24 @@ const mostrarMedicos = (arr) =>{
             </div>            
             <div class="nombre-apellido">
                  <label  for="${element.especialidad}">${element.especialidad}</label>
-            </div>     
-            <form action="" class="verTurnosForm">
-            <input type="hidden" id="inputverturnos${element.id}" value="${element.id}" />
-            <button type="submit" >Ver Turnos</button>
-            </form>
-
-            <button id="verturnos" onclick="verTurnosFx(${element.id})">Ver turnos 2</>button>
-            
+            <button id="verturnos" onclick="verTurnosFx(${element.id})">Ver turnos </>button>
         </div>`        
-
     })    
-    
-
-    /*
-    verTurnosForm = document.getElementsByClassName("verturnosform");
-    verTurnosForm.addEventListener("submit", () => {
-        
-        const idMedico = document.getElementById("inputverturnos${element.id}").value
-        console.log("idMedico", idMedico)
-        //mostrarAgendaMedico(arr, idMedico)
-    })
-    */
-
-
 }
 
 const verMedicos = (arr)=>{
     verMedicosBtn.addEventListener('click',()=>{ 
         mostrarMedicos(arr)
-        
     })
 }
 
 
     
 
-/*
-const  seleccionarMedico = (arr)=>{
-    const verTurnosForm = document.getElementById("verturnosform");
-            verTurnosForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-              const idMedico = document.getElementById("inputverturnos${element.id}").value
-                mostrarAgendaMedico(arr, idMedico)
-              });
-            }
-  */  
+
 
 const mostrarAgendaMedico = (id) =>{
-    //const agendaMedico = buscarAgendaMedico(arr, id)
+
     const medico = arrMedicos.find((element)=> element.id == id);
     
     const agendaMedico = medico.agenda;
