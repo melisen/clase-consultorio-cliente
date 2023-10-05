@@ -1,5 +1,6 @@
 [
     {
+        "id":1,
         "nombre": "Jimena",
         "apellido": "Gutiérrez",
         "especialidad":"Ginecología",
@@ -32,8 +33,36 @@
         ]
     },
     {
+        "id":2,
         "nombre": "Marcela",
         "apellido": "Flores",
-        "especialidad":"Odontología"
+        "especialidad":"Odontología",
+        "consultorio":  4,
+        "agenda": [
+            {
+                "fecha": 25,  
+                "dia": "lunes",
+                "turnos":[
+                    {
+                        "horario": 12,
+                        "paciente": "Francisco"
+                    },
+                    {
+                        "horario": 13,
+                        "paciente": "disponible"
+                    },
+                    {
+                        "horario": 14,
+                        "paciente": "disponible"
+                    },
+                    {
+                        "horario": 15,
+                        "paciente": "disponible"    
+                    }                   
+                ]
+                
+            }
+            
+        ]
     }
 ]

@@ -1,5 +1,16 @@
-.card-turno{
+
+.card-medico{
   width:10rem;
+  border: 0.1rem solid rgb(78, 160, 179);
+  border-radius: 5px;
+  display: inline-block;
+  box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0.5rem; 
+}
+.div-fecha{
+
   border: 0.1rem solid rgb(78, 160, 179);
   border-radius: 5px;
   display: inline-block;

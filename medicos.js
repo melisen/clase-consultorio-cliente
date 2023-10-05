@@ -24,17 +24,24 @@ buscarMedicos(relativePath)
 const divMedicos = document.getElementById("divmedicos");
 const verMedicosBtn = document.getElementById("vermedicos");
 const divturnos = document.getElementById("divturnos");
-const verTurnosBtn = document.getElementById("verturnos")
+
 
 
 
 //*funciones:
+const verTurnosFx = (id)=>{
+    //console.log(id)
+    mostrarAgendaMedico(id)
+}
+
 const mostrarMedicos = (arr) =>{
+
+    
     arr.forEach((element)=>{
         let cardMedico = document.createElement("div");
         divMedicos.appendChild(cardMedico)
         cardMedico.innerHTML =    
-        `<div class="card-turno ">
+        `<div class="card-medico">
             <div class="nombre-apellido">
                 <label  for="${element.nombre}">${element.nombre}</label>
                 <label  for="${element.apellido}">${element.apellido}</label>
@@ -42,44 +49,62 @@ const mostrarMedicos = (arr) =>{
             <div class="nombre-apellido">
                  <label  for="${element.especialidad}">${element.especialidad}</label>
             </div>     
-            <button id="verturnos${element.id}" class="btn">Ver Turnos</button>
+            <form action="" class="verTurnosForm">
+            <input type="hidden" id="inputverturnos${element.id}" value="${element.id}" />
+            <button type="submit" >Ver Turnos</button>
+            </form>
+
+            <button id="verturnos" onclick="verTurnosFx(${element.id})">Ver turnos 2</>button>
+            
         </div>`        
 
+    })    
+    
+
+    /*
+    verTurnosForm = document.getElementsByClassName("verturnosform");
+    verTurnosForm.addEventListener("submit", () => {
+        
+        const idMedico = document.getElementById("inputverturnos${element.id}").value
+        console.log("idMedico", idMedico)
+        //mostrarAgendaMedico(arr, idMedico)
     })
+    */
+
+
 }
 
 const verMedicos = (arr)=>{
     verMedicosBtn.addEventListener('click',()=>{ 
         mostrarMedicos(arr)
-        seleccionarMedico(arr)
+        
     })
 }
 
 
+    
 
+/*
 const  seleccionarMedico = (arr)=>{
-   arr.forEach((element) =>{
-        //const elegido = document.getElementById(`checkbox${e.id}`);
-        const btnElegido = document.getElementById(`verturnos${element.id}`);        
-        btnElegido.addEventListener('click',()=>{ 
-                mostrarAgendaMedico(arrMedicos, element.id)
-            })
-    })
-}
+    const verTurnosForm = document.getElementById("verturnosform");
+            verTurnosForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+              const idMedico = document.getElementById("inputverturnos${element.id}").value
+                mostrarAgendaMedico(arr, idMedico)
+              });
+            }
+  */  
 
-
-const buscarAgendaMedico = (arr, id) =>{
-const medico = arr.find((element)=> element.id === id);
-const agendaMedico = medico.agenda;
-return agendaMedico;
-}
-
-const mostrarAgendaMedico = (arr, id) =>{
-    const agendaMedico = buscarAgendaMedico(arr, id)
+const mostrarAgendaMedico = (id) =>{
+    //const agendaMedico = buscarAgendaMedico(arr, id)
+    const medico = arrMedicos.find((element)=> element.id == id);
+    
+    const agendaMedico = medico.agenda;
+    //array de dias, cada element es 1 dia
     agendaMedico.forEach((element) =>{
-        const cardTurno = document.createElement("div");
-        cardTurno.className ="cardTurno";
-        divturnos.appendChild(cardTurno);
+        const divFecha = document.createElement("div");
+        divFecha.className ="divFecha";
+        divturnos.appendChild(divFecha);
         
         const arrTurnos = element.turnos;
         const listaHorarios = arrTurnos.map((item) =>
@@ -91,12 +116,11 @@ const mostrarAgendaMedico = (arr, id) =>{
             </button>
            </li>`
       ).join(" ");      
-        cardTurno.innerHTML =    
-        `<div class="card-turno ">
+
+      divFecha.innerHTML =    
+        `<div class="div-fecha ">
             <label  for="${element.dia}">${element.dia}</label>
             <label  for="${element.fecha}">${element.fecha}</label>
-            
-
             <form method="post" action="/api/medicos/jimena/modificar">
             <ul class="lista">
            ${listaHorarios}

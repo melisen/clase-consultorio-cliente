@@ -12,3 +12,10 @@ turnos es un array
 objeto está compuesto por:
 horario y paciente
 number    string
+
+orden en que se ejecutan las funciones:
+1°   buscarMedicos(relativePath)
+2°  verMedicos(arrMedicos) --> acción de click lleva a -->
+3°  mostrarMedicos(arrMedicos)
+4° acción de click en btn verturnos --> verTurnosFx(id)
+5° mostrarAgendaMedico(id)
