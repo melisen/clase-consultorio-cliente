@@ -81,7 +81,7 @@ class Medicos{
               const objs = await this.getAll();
               const obj = objs.find((item) => item.id == id);
               if (!obj) {
-                console.log("No se encontró qué borrar");
+                return console.log("No se encontró qué borrar");
               } else {
                 const newArr = objs.filter((ob) => ob.id != id);
                 const eliminar = await fs.promises.writeFile(
@@ -103,7 +103,7 @@ class Medicos{
             let agenda = medico.agenda;
             let existeTurno = agenda.find(item=> item.fecha == fecha && item.dia ==dia && item.horario == horario)
             if(existeTurno){
-                console.log("el turno ya está ocupado")
+              return console.log(`El turno |${dia} ${fecha} a las ${horario} hs| ya está ocupado`)
             }
             agenda.push(nuevoTurno);
             medico.agenda = agenda;
@@ -113,13 +113,78 @@ class Medicos{
             await fs.promises.writeFile(this.ruta, JSON.stringify(medicos), {
                 encoding: "utf-8",
               });
-              console.log( "turno agregado con éxito", nuevoTurno);
+              console.log( "Turno agregado con éxito", nuevoTurno);
             } catch (error) {
               console.log("error", error);
             }
 
           }
-    
+          
+          async findAppointment(id, fecha, horario){
+            try {
+              let medico = await this.findById(id)
+              let agenda = medico.agenda;
+              let turno = agenda.find((item)=> ((item.fecha == fecha)  && (item.horario == horario)))
+              if(!turno){
+                return console.log("Turno no encontrado")
+              }
+              return turno
+            }catch(error){
+              console.log(error)
+            }
+          }
+
+          async findAppointmentByPatient(id, paciente){
+            let medico = await this.findById(id)
+            let agenda = medico.agenda;
+            let turnosPaciente = agenda.filter((item)=> item.paciente == paciente)
+            return turnosPaciente
+          }
+
+          async updateAppointment(id, fecha, horario, paciente){
+            try {
+              let medico = await this.findById(id)
+              let agenda = medico.agenda;
+              let turno = agenda.find((item)=> ((item.fecha == fecha)  && (item.horario == horario)))
+              if(!turno){
+                return console.log("Turno no encontrado")
+              }
+              turno.paciente = paciente;
+              agenda = agenda.filter(item=> item.fecha !== fecha  && item.horario !== horario)
+              agenda.push(turno)
+              medico.agenda = agenda;
+  
+              let medicos = await this.getAll();
+              let quitar = medicos.filter((item)=>item.id !==id);
+              medicos = [...quitar, medico];
+              await fs.promises.writeFile(this.ruta, JSON.stringify(medicos), {encoding: "utf-8",});
+              console.log( "Turno modificado con éxito");
+            }              
+            catch (error) {
+              console.log(error)
+            }
+          }
+
+          async deleteAppointment(id, fecha, horario){
+            try {
+              let medico = await this.findById(id)
+              let agenda = medico.agenda;
+              let turno = agenda.find((item)=> ((item.fecha == fecha)  && (item.horario == horario)))
+              if(!turno){
+                return console.log("Turno no encontrado")
+              }
+              medico.agenda = agenda.filter((item)=> ((item.fecha !== fecha)  && (item.horario !== horario)))
+              let medicos = await this.getAll();
+              let quitar = medicos.filter((item)=>item.id !==id);
+              medicos = [...quitar, medico];
+              await fs.promises.writeFile(this.ruta, JSON.stringify(medicos), {encoding: "utf-8",});
+              console.log( "Turno eliminado con éxito");
+
+            } catch (error) {
+              console.log(error)
+            }
+             
+          }
 }
 
 module.exports = {Medicos}
