@@ -1,7 +1,7 @@
 
 
 //* PEDIR DATOS A UNA API u obtenerlos de forma local leyendo un archivo .json (la ruta del archivo debe estar escrita a partir de la raíz de la estructura de carpetas del proyecto):
-let relativePath = "./models/medicosCopia.json"  //
+let relativePath = "../models/medicosCopia.json"  //
 let urlServidorLocalMedicos = "http://localhost:8080/api/medicos"
 let arrMedicos = [];
 

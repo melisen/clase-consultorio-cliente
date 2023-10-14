@@ -1,3 +1,4 @@
+"medicosMuyAnidado.json"
 array de médicos
 cada médico es un objeto
 propiedades de un médico son:
@@ -12,7 +13,21 @@ turnos es un array
 objeto está compuesto por:
 horario y paciente
 number    string
+****************************************************************************
+"medicosCopia.json"
+array de médicos
+cada médico es un objeto
+propiedades de un médico son:
+nombre, apellido, especialidad, consultorio, agenda
+string,  string,    string,      number       array
 
+agenda está compuesto por un conjunto de turnos
+propiedades del objeto turno:
+fecha, dia, horario, paciente
+Number, String, Number, String
+
+*****************************************************************************************************
+"medicos.js"
 orden en que se ejecutan las funciones:
 1°   buscarMedicos(relativePath)
 2°  verMedicos(arrMedicos) --> acción de click lleva a -->

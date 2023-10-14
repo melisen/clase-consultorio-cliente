@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href ="../css/profesionales.css">
+    <title>Profesionales</title>
+</head>
+<body>
+    <h1>Profesionales de nuestros consultorios</h1>
+    <div id="divprueba"></div>
+    <button id="inscribirbtn">Inscribir profesional</button>
+    <div id="divforminscribirprof" class="seVe">
+        <form method="" action=""> 
+            <label for="category">Especialidad:</label>
+            <select name="especialidad" id="especialidad">
+              <option value="Ginecología">Ginecología</option>
+              <option value="Traumatología">Traumatología</option>
+              <option value="Odontología">Odontología</option>
+            </select><br>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" ><br>
+            <label for="lastname">Apellido</label>
+            <input type="text" id="lastname" name="lastname"><br>
+            <label for="office">Consultorio</label>
+            <input type="text" id="office" name="office"><br>
+            <!--
+            <label for="thumbnail">Foto (URL):</label>
+            <input type="text" id="thumbnail" name="thumbnail"><br>
+            -->
+            <button type="submit">Enviar</button>
+          </form>
+    </div>
+    
+    <script src="../js-client/profesionales.js"></script>
+</body>
+</html>

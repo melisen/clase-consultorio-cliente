@@ -1,0 +1,12 @@
+.noSeVe{
+    display:none;
+}
+.seVe{
+    display:block;
+}
+.valid{
+color:rgb(29, 117, 88)
+}
+.invalid{
+color:brown;
+}
