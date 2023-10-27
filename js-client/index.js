@@ -1,7 +1,7 @@
 
 
 //* PEDIR DATOS A UNA API u obtenerlos de forma local leyendo un archivo .json (la ruta del archivo debe estar escrita a partir de la raíz de la estructura de carpetas del proyecto):
-let relativePath = "../models/medicosCopia.json"  //
+let relativePath = "../medicosNuevo.json"  //
 let urlServidorLocalMedicos = "http://localhost:8080/api/medicos"
 let arrMedicos = [];
 
@@ -46,9 +46,9 @@ const mostrarMedicos = (arr) =>{
                 <label  for="${element.nombre}">${element.nombre}</label>
                 <label  for="${element.apellido}">${element.apellido}</label>
             </div>            
-            <div class="nombre-apellido">
+            <div class="nombre-apellido especialidad">
                  <label  for="${element.especialidad}">${element.especialidad}</label>
-            <button id="verturnos" class="btn" onclick="verTurnosFx(${element.id})">Ver turnos </button>
+            <button id="verturnos" class="btn" onclick="verTurnosFx(${element.id})">Ver Turnos </button>
         </div>`        
     })    
 }
@@ -79,7 +79,7 @@ const mostrarAgendaMedico = (id) =>{
             <ul class="lista">
             <li> ${element.horario} hs  <label  for="${element.paciente}" class="paciente">${element.paciente}</label>
             <input name="pacienteanotado" id="${element.horario}" type="text">
-            <button type="submit" id="" style="color:white; background-color:rgb(92, 200, 92); margin:20px; border-radius:3px; border-width:0px; padding:8px;">
+            <button type="submit" id="" class="btn-modificar">
                Modificar
             </button>
            </li>

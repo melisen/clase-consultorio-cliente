@@ -1,0 +1,50 @@
+[
+    {
+      "id": 2,
+      "nombre": "Marcela",
+      "apellido": "Flores",
+      "especialidad": "Odontología",
+      "consultorio": 4,
+      "agenda": [
+        { "fecha": 25, "dia": "miércoles", "horario": 18, "pacienteId": 1 },
+        { "fecha": 24, "dia": "martes", "horario": 15, "pacienteId": 1 }
+      ]
+    },
+    {
+      "nombre": "Melina",
+      "apellido": "Sen",
+      "especialidad": "Traumatología",
+      "consultorio": "5",
+      "id": 4,
+      "agenda": []
+    },
+    {
+      "id": 1,
+      "nombre": "Jimena",
+      "apellido": "Gutiérrez",
+      "especialidad": "Ginecología",
+      "consultorio": "10",
+      "agenda": [
+        { "fecha": 25, "dia": "lunes", "horario": 12, "pacienteId": 1 }
+      ]
+    },
+    {
+      "nombre": "Roberto",
+      "apellido": "Watson",
+      "especialidad": "Ginecología",
+      "consultorio": "10",
+      "id": 2,
+      "agenda": []
+    },
+    {
+      "nombre": "Antonio",
+      "apellido": "Ríos",
+      "especialidad": "Ginecología",
+      "consultorio": "9",
+      "id": 3,
+      "agenda": [
+        { "fecha": 25, "dia": "miércoles", "horario": 16, "pacienteId": 1 }
+      ]
+    }
+  ]
+  

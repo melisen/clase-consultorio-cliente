@@ -1,11 +1,40 @@
+@font-face {
+  font-family: "Vogue";
+  src: url("../tipografias/Vogue.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}
+@font-face {
+  font-family: "Lemon";
+  src: url("../tipografias/LEMONMILK-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}
+.nombre-apellido{
+  font-family:"Lemon",  sans-serif;
+  padding: 10px 0 10px 0 ;
+  font-size:1rem;
+  color:rgb(32, 82, 167);
+
+}
+.especialidad{
+  
+  font-size:0.8rem;
+}
+
 #navbar {
   width: 100%;
   padding:0;
   margin:0;
   background-image: linear-gradient(90deg, rgb(11, 133, 133) 70%, white); }
+  .navbar{
+    font-family:"Vogue",  sans-serif;
+  }
 
 .card-medico{
-  width:10rem;
+  width:15rem;
   border: 0.1rem solid rgb(78, 160, 179);
   border-radius: 5px;
   display: inline-block;
@@ -39,21 +68,29 @@ flex-wrap: wrap;
   font-style:italic;
   font-weight: normal;
 }
-.nombre-apellido{
-  padding: 10px 0 10px 0 ;
-  font-size:1.2rem;
-  font-style:italic;
-  color:rgb(32, 82, 167);
 
-}
 .btn{
   margin-top:10px;
   background-color:rgb(38, 130, 163);
   color:white;
-  font-weight:bold;
-  font-size:1.4rem;
+  font-weight:normal;
+  line-height:1.3rem;
   border-radius:5px;
   border-color:white;
   padding:5px;
+  font-family:"Vogue",  sans-serif;
 }
- 
+.btn-modificar{
+  color:white; 
+  background-color:rgb(25, 169, 167);
+  margin:20px; 
+  border-radius:5px; 
+  border-width:0px; 
+  padding:5px;
+  font-family:"Vogue",  sans-serif;
+ line-height:1.3rem;
+}
+.gradiente{
+  background-image: linear-gradient(0% #380b58, 100% #d372d3 );
+  color:#f6d9f6
+}
