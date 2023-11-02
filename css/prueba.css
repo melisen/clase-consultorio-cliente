@@ -1,0 +1,20 @@
+h1{
+    color:brown;
+}
+*{
+    margin:0;
+
+}
+   
+
+.franjaColor{
+    background-color: rgb(200, 144, 80);
+    height:50vh;
+
+
+}
+/*
+viewport horizontal -->vw  width
+
+vertical --> vh height
+*/
